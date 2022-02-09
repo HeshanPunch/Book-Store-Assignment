@@ -10,7 +10,7 @@ public class BooksManager {
 	private static final String PATH = "res/books.txt";
 
 	public void LoadBooksFromFile() throws IOException {
-		final int ISBN_NUM_LENTH = 13;
+		//final int ISBN_NUM_LENTH = 13;
 
 		Scanner in = new Scanner(new File(PATH));
 
@@ -18,7 +18,7 @@ public class BooksManager {
 			String line = in.nextLine();
 			String[] fields = line.split(";");
 			String isbn = fields[0];
-			char lastChar = fields[0].charAt(ISBN_NUM_LENTH - 1);
+			char lastChar = fields[0].charAt(fields[0].length() - 1);
 
 			switch (lastChar) {
 			case '0':
@@ -47,8 +47,11 @@ public class BooksManager {
 				System.out.println("Error sorting through input array");
 
 			}
-
 			
+			for (Book b : books) {
+				System.out.println(b);
+			}
+			 		
 
 		}
 
