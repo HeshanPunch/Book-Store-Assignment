@@ -3,12 +3,12 @@ package sait.bms.problemdomain;
 public class Periodical extends Book {
 
 	private char frequency;
-	
+
 	public Periodical() {
-		
+
 	}
 
-	public Periodical(String isbn, String callNumber, int available, int total, String title, char frequency) {
+	public Periodical(long isbn, String callNumber, int available, int total, String title, char frequency) {
 		super(isbn, callNumber, available, total, title);
 		this.frequency = frequency;
 	}
@@ -23,12 +23,30 @@ public class Periodical extends Book {
 
 	@Override
 	public String toString() {
-		return "Periodicals [" + super.toString() + "frequency=" + frequency + ", toString()=" + "]";
-	}
-	
-	
-	
-	
-	
-}
+		String frequencyString = "";
 
+		switch (frequency) {
+		case 'D':
+			frequencyString = "Daily";
+			break;
+		case 'W':
+			frequencyString = "Weekly";
+			break;
+		case 'M':
+			frequencyString = "Monthly";
+			break;
+		case 'B':
+			frequencyString = "Bimonthly";
+			break;
+		case 'Q':
+			frequencyString = "Quarterly";
+			break;
+		default:
+			System.out.println("Error in Periodicals Genre Switch");
+		}
+
+		return (super.toString() + String.format("%-15s%s\n", "Frequency:", frequencyString));
+
+	}
+
+}

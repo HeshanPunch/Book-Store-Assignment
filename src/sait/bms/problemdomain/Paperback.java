@@ -1,16 +1,16 @@
 package sait.bms.problemdomain;
 
 public class Paperback extends Book {
-	
+
 	private String authors;
 	private int year;
 	private char genre;
-	
+
 	public Paperback() {
-		
+
 	}
 
-	public Paperback(String isbn, String callNumber, int available, int total, String title, String authors, int year,
+	public Paperback(long isbn, String callNumber, int available, int total, String title, String authors, int year,
 			char genre) {
 		super(isbn, callNumber, available, total, title);
 		this.authors = authors;
@@ -44,10 +44,34 @@ public class Paperback extends Book {
 
 	@Override
 	public String toString() {
-		return "Paperbacks " + super.toString() + "[authors=" + authors + ", year=" + year + ", genre=" + genre +"]";
+		String genreString = "";
+
+		switch (genre) {
+		case 'A':
+			genreString = "Adventure";
+			break;
+		case 'D':
+			genreString = "Drama";
+			break;
+		case 'E':
+			genreString = "Education";
+			break;
+		case 'C':
+			genreString = "Classic";
+			break;
+		case 'F':
+			genreString = "Fantasy";
+			break;
+		case 'S':
+			genreString = "Science Fiction";
+			break;
+		default:
+			System.out.println("Error in Paperback Genre Switch");
+		}
+
+		return (super.toString() + String.format("%-15s%s\n%-15s%d\n%-15s%s\n", "Authors:", authors, "Year:", year,
+				"Genre:", genreString));
+
 	}
-	
-	
-	
 
 }

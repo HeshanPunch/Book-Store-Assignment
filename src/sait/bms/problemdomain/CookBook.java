@@ -1,15 +1,14 @@
 package sait.bms.problemdomain;
 
-public class CookBook extends Book{
+public class CookBook extends Book {
 	private String publisher;
 	private char diet;
-	
-	public CookBook(){
-		
+
+	public CookBook() {
+
 	}
 
-	public CookBook(String isbn, String callNumber, int available, int total, String title, String publisher,
-			char diet) {
+	public CookBook(long isbn, String callNumber, int available, int total, String title, String publisher, char diet) {
 		super(isbn, callNumber, available, total, title);
 		this.publisher = publisher;
 		this.diet = diet;
@@ -33,10 +32,30 @@ public class CookBook extends Book{
 
 	@Override
 	public String toString() {
-		return "CookBooks [super.toString() + publisher=" + publisher + ", diet=" + diet + ", toString()=" + "]";
-	}
-	
-		
+		String dietString = "";
 
+		switch (diet) {
+		case 'D':
+			dietString = "Diabetic";
+			break;
+		case 'V':
+			dietString = "Vegetarian";
+			break;
+		case 'G':
+			dietString = "Gluten-free";
+			break;
+		case 'I':
+			dietString = "International";
+			break;
+		case 'N':
+			dietString = "None";
+			break;
+		default:
+			System.out.println("Error in Cook Book Diet Switch");
+
+		}
+
+		return (super.toString() + String.format("%-15s%s\n%-15s%s\n", "Publisher:", publisher, "Diet:", dietString));
+	}
 
 }
