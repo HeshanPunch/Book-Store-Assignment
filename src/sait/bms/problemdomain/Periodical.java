@@ -12,14 +12,14 @@ package sait.bms.problemdomain;
 public class Periodical extends Book {
 	private char frequency;
 
-	/*
+	/**
 	 * Default constructor for the Paperback object, subclass of Book
 	 */
 	public Periodical() {
 
 	}
 
-	/*
+	/**
 	 * Constructor for Paperback object, subclass of Book
 	 * 
 	 * @param isbn which is a standardized 13-digit code to identify the book
@@ -42,7 +42,7 @@ public class Periodical extends Book {
 		this.frequency = frequency;
 	}
 
-	/*
+	/**
 	 * Gets the publication frequency of the book
 	 * 
 	 * @return frequency of the book as a single character - D/W/M/B/Q
@@ -50,7 +50,7 @@ public class Periodical extends Book {
 	public char getFrequency() {
 		return frequency;
 	}
-	/*
+	/**
 	 * Sets the publication frequency of the book
 	 * 
 	 * @return frequency of the book as a single character - D/W/M/B/Q
@@ -59,7 +59,7 @@ public class Periodical extends Book {
 		this.frequency = frequency;
 	}
 
-	/*
+	/**
 	 * Return Periodical object information in vertical string format for
 	 * readability
 	 * 

@@ -12,14 +12,14 @@ public class CookBook extends Book {
 	private String publisher;
 	private char diet;
 
-	/*
+	/**
 	 * Default constructor for the CookBook object, subclass of Book
 	 */
 	public CookBook() {
 
 	}
 
-	/*
+	/**
 	 * Constructor for CookBook object, subclass of Book
 	 * 
 	 * @param isbn which is a standardized 13-digit code to identify the book
@@ -44,7 +44,7 @@ public class CookBook extends Book {
 		this.diet = diet;
 	}
 
-	/*
+	/**
 	 * Gets the publisher of the book
 	 * 
 	 * @return getPublisher which identifies the publisher of the book
@@ -53,7 +53,7 @@ public class CookBook extends Book {
 		return publisher;
 	}
 
-	/*
+	/**
 	 * Sets the publisher of the book
 	 * 
 	 * @param getPublisher which identifies the publisher of the book
@@ -62,7 +62,7 @@ public class CookBook extends Book {
 		this.publisher = publisher;
 	}
 
-	/*
+	/**
 	 * Gets the diet of the book
 	 * 
 	 * @return diet which identifies the diet category of the book, shorthand -
@@ -72,7 +72,7 @@ public class CookBook extends Book {
 		return diet;
 	}
 
-	/*
+	/**
 	 * Sets the diet of the book
 	 * 
 	 * @param diet which identifies the diet category of the book, shorthand -
@@ -82,7 +82,7 @@ public class CookBook extends Book {
 		this.diet = diet;
 	}
 
-	/*
+	/**
 	 * Return CookBook object information in vertical string format for easy
 	 * readability
 	 * 

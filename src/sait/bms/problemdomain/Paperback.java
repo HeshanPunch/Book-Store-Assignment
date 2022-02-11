@@ -14,14 +14,14 @@ public class Paperback extends Book {
 	private int year;
 	private char genre;
 
-	/*
+	/**
 	 * Default constructor for the Paperback object, subclass of Book
 	 */
 	public Paperback() {
 
 	}
 
-	/*
+	/**
 	 * Constructor for Paperback object, subclass of Book
 	 * 
 	 * @param isbn which is a standardized 13-digit code to identify the book
@@ -51,7 +51,7 @@ public class Paperback extends Book {
 		this.genre = genre;
 	}
 
-	/*
+	/**
 	 * Gets the author(s) of the book
 	 * 
 	 * @return authors of the book
@@ -60,7 +60,7 @@ public class Paperback extends Book {
 		return authors;
 	}
 
-	/*
+	/**
 	 * Sets the author(s) of the book
 	 * 
 	 * @param authors of the book
@@ -69,7 +69,7 @@ public class Paperback extends Book {
 		this.authors = authors;
 	}
 
-	/*
+	/**
 	 * Gets the year of the book
 	 * 
 	 * @return year of the book
@@ -78,7 +78,7 @@ public class Paperback extends Book {
 		return year;
 	}
 	
-	/*
+	/**
 	 * Sets the year of the book
 	 * 
 	 * @param year of the book
@@ -87,7 +87,7 @@ public class Paperback extends Book {
 		this.year = year;
 	}
 	
-	/*
+	/**
 	 * Gets the genre of the book
 	 * 
 	 * @return genre of the book identified by a single character - A/D/E/C/F/S
@@ -96,7 +96,7 @@ public class Paperback extends Book {
 		return genre;
 	}
 	
-	/*
+	/**
 	 * Sets the genre of the book
 	 * 
 	 * @return genre of the book identified by a single character - A/D/E/C/F/S
@@ -105,7 +105,7 @@ public class Paperback extends Book {
 		this.genre = genre;
 	}
 	
-	/*
+	/**
 	 * Return Paperback object information in vertical string format for easy
 	 * readability
 	 *  

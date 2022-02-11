@@ -13,14 +13,14 @@ public class ChildrensBook extends Book {
 	private String authors;
 	private char format;
 
-	/*
+	/**
 	 * Default constructor for the ChildrensBook object
 	 */
 	public ChildrensBook() {
 
 	}
 
-	/*
+	/**
 	 * Constructor for ChildrensBook object, subclass of Book
 	 * 
 	 * @param isbn which is a standardized 13-digit code to identify the book
@@ -45,7 +45,7 @@ public class ChildrensBook extends Book {
 		this.format = format;
 	}
 
-	/*
+	/**
 	 * Gets the author(s) of the book
 	 * 
 	 * @return authors of the book
@@ -54,7 +54,7 @@ public class ChildrensBook extends Book {
 		return authors;
 	}
 
-	/*
+	/**
 	 * Sets the author(s) of the book
 	 * 
 	 * @param authors of the book
@@ -63,7 +63,7 @@ public class ChildrensBook extends Book {
 		this.authors = authors;
 	}
 
-	/*
+	/**
 	 * Gets format of the book in a single character format P for Picture Book, E
 	 * for Early Readers, C for Chapter Book
 	 * 
@@ -73,7 +73,7 @@ public class ChildrensBook extends Book {
 		return format;
 	}
 
-	/*
+	/**
 	 * Sets the format of the book
 	 * 
 	 * @param format of the book (P, E, or C)
@@ -82,7 +82,7 @@ public class ChildrensBook extends Book {
 		this.format = format;
 	}
 
-	/*
+	/**
 	 * Return ChildrensBook object information in vertical string format for easy
 	 * readability
 	 * 

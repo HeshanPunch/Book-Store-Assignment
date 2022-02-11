@@ -22,18 +22,18 @@ public class Book {
 
 	}
 
-	/*
+	/**
 	 * Constructor for Book class
 	 * 
-	 * @param isbn which is a standardized 13-digit code to identify the book
+	 * @param isbn       which is a standardized 13-digit code to identify the book
 	 * 
 	 * @param callNumber which is the standardized number for locating the book
 	 * 
-	 * @param available number of books that can be checked out
+	 * @param available  number of books that can be checked out
 	 * 
-	 * @param total number of books that are available
+	 * @param total      number of books that are available
 	 * 
-	 * @param title of the book
+	 * @param title      of the book
 	 */
 	public Book(long isbn, String callNumber, int available, int total, String title) {
 		super();
@@ -44,7 +44,7 @@ public class Book {
 		this.title = title;
 	}
 
-	/*
+	/**
 	 * Gets ISBN number
 	 * 
 	 * @return isbn which is a standardized 13-digit code for the book
@@ -54,7 +54,7 @@ public class Book {
 		return isbn;
 	}
 
-	/*
+	/**
 	 * Sets ISBN number
 	 * 
 	 * @param isbn which is a standardized 13-digit code for the book
@@ -64,7 +64,7 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	/*
+	/**
 	 * Gets Call Number
 	 * 
 	 * @return calllNumber
@@ -73,7 +73,7 @@ public class Book {
 		return callNumber;
 	}
 
-	/*
+	/**
 	 * Sets Call Number
 	 * 
 	 * @param callNumber
@@ -82,7 +82,7 @@ public class Book {
 		this.callNumber = callNumber;
 	}
 
-	/*
+	/**
 	 * Gets available number of books
 	 * 
 	 * @return available
@@ -91,7 +91,7 @@ public class Book {
 		return available;
 	}
 
-	/*
+	/**
 	 * Sets available number of books
 	 * 
 	 * @param available books
@@ -100,7 +100,7 @@ public class Book {
 		this.available = available;
 	}
 
-	/*
+	/**
 	 * Gets total number of books
 	 * 
 	 * @return total number of books
@@ -109,7 +109,7 @@ public class Book {
 		return total;
 	}
 
-	/*
+	/**
 	 * Sets total number of books
 	 * 
 	 * @param total number of books
@@ -118,7 +118,7 @@ public class Book {
 		this.total = total;
 	}
 
-	/*
+	/**
 	 * Gets title of the book
 	 * 
 	 * @return title of the book
@@ -127,7 +127,7 @@ public class Book {
 		return title;
 	}
 
-	/*
+	/**
 	 * Sets the title of the book
 	 * 
 	 * @param title of the book
@@ -136,7 +136,7 @@ public class Book {
 		this.title = title;
 	}
 
-	/*
+	/**
 	 * Return Book object information in vertical string format for easy readability
 	 * 
 	 * @return isbn which is a standardized 13-digit code to identify the book
