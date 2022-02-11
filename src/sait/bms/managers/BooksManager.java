@@ -85,18 +85,11 @@ public class BooksManager {
 				break;
 			}
 			case 3: {
-				// displayTypeBook();
-				System.out.println("# Type");
-				System.out.println("1	Children's Books");
-				System.out.println("2	Cookbooks");
-				System.out.println("3	Paperbacks");
-				System.out.println("4	Periodicals");
-				int type = input.nextInt();
-				// displayTypeBook(type);
+				displayTypeBook();
 				break;
 			}
 			case 4: {
-				// randomList();
+				randomList();
 				System.out.println("case4");
 				break;
 			}
@@ -123,17 +116,21 @@ public class BooksManager {
 
 		for (Book book : books) {
 			if (book.getIsbn() == isbn) {
-				// System.out.println(book.getAvailable() + "before");
-				if (book.getAvailable() > 0) {
+				if (book instanceof Periodical) {
+					System.out.println("Periodicals cannot be checked out");
+				} else if (book.getAvailable() > 0) {
 					System.out.println("\nThe book \"" + book.getTitle() + "\" has been checked out.");
 					System.out.println("It can be located using a call number: " + book.getCallNumber() + "\n");
 					book.setAvailable(book.getAvailable() - 1);
 					// System.out.println(book.getAvailable() + "after");
-				} else {
+				} else if (book.getAvailable() == 0) {
 					System.out.println("\nThe book \"" + book.getTitle() + "\" is not available.\n");
+				} else {
+					System.out.println("\nISBN \"" + isbn + "\" not found\n");
 				}
 			}
 		}
+
 	}
 
 	public void findBook() throws FileNotFoundException {
@@ -147,9 +144,7 @@ public class BooksManager {
 				System.out.println("Matching books:");
 				System.out.println(thisBook);
 			}
-
 		}
-
 	}
 
 	public void saveBooks() throws FileNotFoundException {
@@ -157,34 +152,127 @@ public class BooksManager {
 		PrintWriter bookSaver = new PrintWriter(PATH);
 
 		for (Book book : books) {
-
 			if (book instanceof ChildrensBook) {
-
 				bookSaver.write(book.getIsbn() + ";" + book.getCallNumber() + ";" + book.getAvailable() + ";"
 						+ book.getTotal() + ";" + book.getTitle() + ";" + ((ChildrensBook) book).getAuthors() + ";"
 						+ ((ChildrensBook) book).getFormat() + System.lineSeparator());
-
 			} else if (book instanceof CookBook) {
-
 				bookSaver.write(book.getIsbn() + ";" + book.getCallNumber() + ";" + book.getAvailable() + ";"
 						+ book.getTotal() + ";" + book.getTitle() + ";" + ((CookBook) book).getPublisher() + ";"
 						+ ((CookBook) book).getDiet() + System.lineSeparator());
-
 			} else if (book instanceof Paperback) {
-
 				bookSaver.write(book.getIsbn() + ";" + book.getCallNumber() + ";" + book.getAvailable() + ";"
 						+ book.getTotal() + ";" + book.getTitle() + ";" + ((Paperback) book).getAuthors() + ";"
 						+ ((Paperback) book).getYear() + ";" + ((Paperback) book).getGenre() + System.lineSeparator());
-
 			} else if (book instanceof Periodical) {
 
 				bookSaver.write(book.getIsbn() + ";" + book.getCallNumber() + ";" + book.getAvailable() + ";"
 						+ book.getTotal() + ";" + book.getTitle() + ";" + ((Periodical) book).getFrequency()
 						+ System.lineSeparator());
-
 			}
 		}
 		bookSaver.close();
-
 	}
+
+	public void randomList() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter number of books: ");
+		int randomNumber = input.nextInt();
+		Collections.shuffle(books);
+		for (int i = 0; i < randomNumber; i++) {
+			System.out.println(books.get(i));
+		}
+	}
+
+	public void displayTypeBook() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("# Type");
+		System.out.println("1	Children's Books");
+		System.out.println("2	Cookbooks");
+		System.out.println("3	Paperbacks");
+		System.out.println("4	Periodicals");
+		System.out.print("Enter Type of Book: ");
+		int type = 0;
+		String userInput = input.next();
+		if (userInput.equals("1") || userInput.equals("2") || userInput.equals("3") || userInput.equals("4")) {
+			type = Integer.parseInt(userInput);
+		} else {
+			System.out.println("Invalid Input! You should enter a number between 1 and 4");
+		}
+
+		switch (type) {
+
+		case 1: {
+			System.out.print("Enter P for Picture book, E for Early Readers, or C for Chapter ");
+			char format = input.next().charAt(0);
+			String format1 = String.valueOf(format);
+			for (Book book : books) {
+				if (book instanceof ChildrensBook) {
+					char thisFormat = ((ChildrensBook) book).getFormat();
+					String StringFormat = String.valueOf(thisFormat);
+					if (format1.equalsIgnoreCase(StringFormat)) {
+						System.out.println("Matching books:");
+						System.out.println(book.toString());
+					}
+				}
+			}
+			break;
+		}
+		case 2: {
+			System.out.print(
+					"Enter D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None: ");
+			char format = input.next().charAt(0);
+			String format1 = String.valueOf(format);
+			for (Book book : books) {
+				if (book instanceof CookBook) {
+					char thisFormat = ((CookBook) book).getDiet();
+					String StringFormat = String.valueOf(thisFormat);
+					if (format1.equalsIgnoreCase(StringFormat)) {
+						System.out.println("Matching books:");
+						System.out.println(book.toString());
+					}
+				}
+			}
+			break;
+		}
+		case 3: {
+			System.out.print(
+					"Enter A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction: ");
+			char format = input.next().charAt(0);
+			String format1 = String.valueOf(format);
+			for (Book book : books) {
+				if (book instanceof Paperback) {
+					char thisFormat = ((Paperback) book).getGenre();
+					String StringFormat = String.valueOf(thisFormat);
+					if (format1.equalsIgnoreCase(StringFormat)) {
+						System.out.println("Matching books:");
+						System.out.println(book.toString());
+					}
+				}
+			}
+			break;
+		}
+		case 4: {
+			System.out.print("Enter D for Daily, W for Weekly, M for Monthly, B for Bimonthly, and Q for Quarterly: ");
+			char format = input.next().charAt(0);
+			String format1 = String.valueOf(format);
+			for (Book book : books) {
+				if (book instanceof Periodical) {
+					char thisFormat = ((Periodical) book).getFrequency();
+					String StringFormat = String.valueOf(thisFormat);
+					if (format1.equalsIgnoreCase(StringFormat)) {
+						System.out.println("Matching books:");
+						System.out.println(book.toString());
+					}
+				}
+			}
+			break;
+
+		}
+		default: {
+			System.out.println("Please try again");
+		}
+		}
+	}
+
 }
